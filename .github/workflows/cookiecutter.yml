@@ -4,7 +4,7 @@ on: [push]
 
 jobs:
   run-cookiecutter:
-    if: ${{ github.repository != 'simonw/python-lib-template-repository' }}
+    if: ${{ github.repository != 'test-organisation3210/python-lib-template-repository' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -51,7 +51,7 @@ jobs:
           export REPO_NAME=$(echo $INFO | jq -r '.repository.name')
           # Run cookiecutter
           pushd /tmp
-          cookiecutter gh:simonw/python-lib --no-input \
+          cookiecutter gh:test-organisation3210/python-lib --no-input \
             lib_name=$REPO_NAME \
             description="$(echo $INFO | jq -r .repository.description)" \
             github_username="$(echo $INFO | jq -r .repository.owner.login)" \
